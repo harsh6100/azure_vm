@@ -1,0 +1,14 @@
+---
+ref: azure_vm
+name: Azure Virtual Machine 
+description: Pack to create ,start ,stop and delete VM on Azure
+keywords:
+    - azure
+    - vm
+version: 3.1.0
+python_versions:
+  - "2"
+  - "3"
+author: Stackstorm_pune
+email: harsh6100@gmail.com
+
