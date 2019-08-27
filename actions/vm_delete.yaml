@@ -7,38 +7,38 @@ description: To Delete a VM!
 enabled: true
 entry_point: demo1.py
 parameters:
-     SUBSCRIPTION_ID :
-        type: string
-        description: subs_id
-        required: true
-        position: 0
-     GROUP_NAME :
-        type: string
-        description: group_name
-        required: true
-        position: 1
+     SUBSCRIPTION_ID:
+             type: string
+             description: subs_id
+             required: true
+             position: 0
+     GROUP_NAME:
+             type: string
+             description: group_name
+             required: true
+             position: 1
      LOCATION:
-        type: string
-        description: location
-        required: true
-        position: 2
-      VM_NAME :
-        type: string
-        description: vm_name
-        required: true
-        position: 3
-     client_id :
-        type: string
-        description: CLIENT_ID
-        required: true
-        position: 4
-     secret :
-        type: string
-        description: SECRET_KEY
-        required: true
-        position: 5
-     tenant :
-        type: string
-        description: TENANT
-        required: true
-        position: 6
+             type: string
+             description: location
+             required: true
+             position: 2
+      VM_NAME:
+             type: string
+             description: vm_name
+             required: true
+             position: 3
+     client_id:
+             type: string
+             description: CLIENT_ID
+             required: true
+             position: 4
+     secret:
+             type: string
+             description: SECRET_KEY
+             required: true
+             position: 5
+     tenant:
+             type: string
+             description: TENANT
+             required: true
+             position: 6
