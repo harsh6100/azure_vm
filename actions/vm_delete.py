@@ -24,18 +24,18 @@ class MyEchoAction(Action):
         def delete_resources(resource_group_client):
             resource_group_client.resource_groups.delete(GROUP_NAME)
         def run(self, Subcription_id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
-        credentials = get_credentials()
-        resource_group_client = ResourceManagementClient(
-            credentials,
-            SUBSCRIPTION_ID
-        )
-        network_client = NetworkManagementClient(
-            credentials,
-            SUBSCRIPTION_ID
-        )
-        compute_client = ComputeManagementClient(
-            credentials,
-            SUBSCRIPTION_ID
-        )
+            credentials = get_credentials()
+            resource_group_client = ResourceManagementClient(
+                credentials,
+                SUBSCRIPTION_ID
+            )
+            network_client = NetworkManagementClient(
+                credentials,
+                SUBSCRIPTION_ID
+            )
+            compute_client = ComputeManagementClient(
+                credentials,
+                SUBSCRIPTION_ID
+            )
 
-        delete_resources(resource_group_client)
+            delete_resources(resource_group_client)
