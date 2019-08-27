@@ -1,44 +1,43 @@
-
 ---
-name: delete_VM
+name: delete_vm
 pack: azure_vm
 runner_type: "python-script"
-description: To Delete a VM!
+description: action to delete virtual machine on cloud  
 enabled: true
-entry_point: demo1.py
+entry_point: book_post.py
 parameters:
-     SUBSCRIPTION_ID:
-             type: string
-             description: subs_id
-             required: true
-             position: 0
-     GROUP_NAME:
-             type: string
-             description: group_name
-             required: true
-             position: 1
-     LOCATION:
-             type: string
-             description: location
-             required: true
-             position: 2
-      VM_NAME:
-             type: string
-             description: vm_name
-             required: true
-             position: 3
-     client_id:
-             type: string
-             description: CLIENT_ID
-             required: true
-             position: 4
-     secret:
-             type: string
-             description: SECRET_KEY
-             required: true
-             position: 5
-     tenant:
-             type: string
-             description: TENANT
-             required: true
-             position: 6
+     Subcription_id:
+        type: string
+        description: Enter Subscription Id
+        required: true
+        position: 0
+     Group_Name:
+        type: string
+        description: Enter Group Name 
+        required: true
+        position: 1
+     Location:
+        type: string
+        description: Enter Location 
+        required: true
+        position: 2
+     VM_Name:
+        type: string
+        description: Enter VM Name 
+        required: true
+        position: 3
+     Client_Id:
+        type: string
+        description: Enter Client Id
+        required: true
+        position: 4
+     Secret:
+        type: string
+        description: Enter Secret String 
+        required: true
+        position: 5
+     Tenant_Id:
+        type: string
+        description: Enater Tenant id
+        required: true
+        position: 6
