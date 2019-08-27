@@ -4,7 +4,7 @@ pack: azure_vm
 runner_type: "python-script"
 description: action to delete virtual machine on cloud  
 enabled: true
-entry_point: book_post.py
+entry_point: vm_delete.py
 parameters:
      Subcription_id:
         type: string
