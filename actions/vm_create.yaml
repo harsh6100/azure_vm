@@ -1,12 +1,12 @@
 ---
-name: create_VM
+name: create_vm
 pack: azure_vm
 runner_type: "python-script"
-description: action to create virtual machine on cloud  
+description: action to delete virtual machine on cloud  
 enabled: true
-entry_point: vm_create.py
+entry_point: vm_delete.py
 parameters:
-     Subscription_Id:
+     Subcription_id:
         type: string
         description: Enter Subscription Id
         required: true
