@@ -8,12 +8,12 @@ from azure.mgmt.compute.models import DiskCreateOption
 from st2common.runners.base_action import Action
 
 class MyEchoAction(Action):
-   def run(self, Subcription_Id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
+   def run(self, Subscription_Id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
 
-        SUBSCRIPTION_ID = '2f50f202-0a84-4c8c-a929-fcc5a3174590'
-        GROUP_NAME = 'myResourceGroup'
-        LOCATION = 'West India'
-        VM_NAME = 'VM61'
+        SUBSCRIPTION_ID = Subscription_Id
+        GROUP_NAME = Group_Name
+        LOCATION = Location
+        VM_NAME =  VM_Name
 
 
         def create_availability_set(compute_client):
@@ -37,9 +37,9 @@ class MyEchoAction(Action):
 
         def get_credentials():
             credentials = ServicePrincipalCredentials(
-                client_id = '211c9188-812b-4fa9-9fc7-c455f2e8ad9d',
-                secret = '9ns1@vspcC46PV+Q-su?=g?tg5[:3-XB',
-                tenant = 'd5656af4-b7b3-45b9-9346-fb0547921fb7'
+                client_id =  Client_Id,
+                secret = Secret,
+                tenant = Tenant_Id
             )
 
             return credentials
