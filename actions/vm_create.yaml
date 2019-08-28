@@ -1,1 +1,50 @@
-
+---
+name: VM_create
+pack: azure_vm
+runner_type: "python-script"
+description: To create a VM instance 
+enabled: true
+entry_point: VM_create.py
+parameters:
+    	Subscription_Id:
+			type: string
+			description: Enter subscription id of the user
+			required: true
+			position: 0
+	
+	Group_Name:
+			type: string
+			description: Enter name of the group
+			required: true
+			position: 1
+				
+	Location:
+			type: string
+			description: Enter location of the user
+			required: true
+			position: 2
+				
+	VM_Name:
+			type: string
+			description: Enter name of the vm instance
+			required: true
+			position: 3
+				
+	Client_Id:
+			type: string
+			description: Enter client ID
+			required: true
+			position: 4
+				
+	Secret:
+			type: string
+			description: Enter secret key 
+			required: true
+			position: 5
+				
+	Tenant_Id:
+			type: string
+			description: Enter tenant id
+			required: true
+			position: 6
+		
