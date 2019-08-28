@@ -11,4 +11,7 @@ class MyEchoAction(Action):
         
         def run(self, Subcription_id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
             
-            print("success")
+            SUBSCRIPTION_ID = Subcription_id
+            GROUP_NAME = Group_Name
+            LOCATION = Location
+            VM_NAME = VM_Name
