@@ -6,7 +6,7 @@ description: action to create virtual machine on cloud
 enabled: true
 entry_point: vm_create.py
 parameters:
-     Subcription_Id:
+     Subscription_Id:
         type: string
         description: Enter Subscription Id
         required: true
