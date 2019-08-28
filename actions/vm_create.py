@@ -16,85 +16,83 @@ class MyEchoAction(Action):
             LOCATION = Location
             VM_NAME = VM_Name
         
-            
-                 def create_availability_set(compute_client):
-                     avset_params = {
+         
+            def create_availability_set(compute_client):
+                avset_params = {
                          'location': LOCATION,
                          'sku': { 'name': 'Aligned' },
                          'platform_fault_domain_count': 2
                          }
-                     availability_set_result = compute_client.availability_sets.create_or_update(
-                         GROUP_NAME,
+                availability_set_result = compute_client.availability_sets.create_or_update(
+                        GROUP_NAME,
                          'myAVSet',
                          avset_params
                          )
 
-                 def create_resource_group(resource_group_client):
-                     resource_group_params = { 'location':LOCATION }
-                     resource_group_result = resource_group_client.resource_groups.create_or_update(
+            def create_resource_group(resource_group_client):
+                resource_group_params = { 'location':LOCATION }
+                resource_group_result = resource_group_client.resource_groups.create_or_update(
                          GROUP_NAME,
                          resource_group_params
                      )
 
-                 def get_credentials():
-                     credentials = ServicePrincipalCredentials(
+            def get_credentials():
+                credentials = ServicePrincipalCredentials(
                          client_id =  Client_Id,
                          secret = Secret,
                          tenant = Tenant_Id
                      )
-
-                     return credentials
-                 def create_public_ip_address(network_client):
-                     public_ip_addess_params = {
+                return credentials
+                
+            def create_public_ip_address(network_client):
+                public_ip_addess_params = {
                          'location': LOCATION,
                          'public_ip_allocation_method': 'Dynamic'
                      }
-                     creation_result = network_client.public_ip_addresses.create_or_update(
+                creation_result = network_client.public_ip_addresses.create_or_update(
                          GROUP_NAME,
                          'myIPAddress',
                          public_ip_addess_params
                      )
+                return creation_result.result()
 
-                     return creation_result.result()
-
-                 def create_vnet(network_client):
-                     vnet_params = {
+            def create_vnet(network_client):
+                        vnet_params = {
                          'location': LOCATION,
                          'address_space': {
                              'address_prefixes': ['10.0.0.0/16']
                          }
                      }
-                     creation_result = network_client.virtual_networks.create_or_update(
+                        creation_result = network_client.virtual_networks.create_or_update(
                          GROUP_NAME,
                          'myVNet',
                          vnet_params
                      )
-                     return creation_result.result()
+                        return creation_result.result()
 
-                 def create_subnet(network_client):
-                     subnet_params = {
+            def create_subnet(network_client):
+                subnet_params = {
                          'address_prefix': '10.0.0.0/24'
                      }
-                     creation_result = network_client.subnets.create_or_update(
+                creation_result = network_client.subnets.create_or_update(
                          GROUP_NAME,
                          'myVNet',
                          'mySubnet',
                          subnet_params
                      )
+                return creation_result.result()
 
-                     return creation_result.result()
-
-                 def create_nic(network_client):
-                     subnet_info = network_client.subnets.get(
+            def create_nic(network_client)
+                subnet_info = network_client.subnets.get(
                          GROUP_NAME,
                          'myVNet',
                          'mySubnet'
                      )
-                     publicIPAddress = network_client.public_ip_addresses.get(
+                publicIPAddress = network_client.public_ip_addresses.get(
                          GROUP_NAME,
                          'myIPAddress'
                      )
-                     nic_params = {
+                nic_params = {
                          'location': LOCATION,
                          'ip_configurations': [{
                              'name': 'myIPConfig',
@@ -104,24 +102,23 @@ class MyEchoAction(Action):
                              }
                          }]
                      }
-                     creation_result = network_client.network_interfaces.create_or_update(
+                creation_result = network_client.network_interfaces.create_or_update(
                          GROUP_NAME,
                          'myNic',
                          nic_params
                      )
+                return creation_result.result()
 
-                     return creation_result.result()
-
-                   def create_vm(network_client, compute_client):
-                     nic = network_client.network_interfaces.get(
+            def create_vm(network_client, compute_client):
+                        nic = network_client.network_interfaces.get(
                          GROUP_NAME,
                          'myNic'
                      )
-                     avset = compute_client.availability_sets.get(
+                        avset = compute_client.availability_sets.get(
                          GROUP_NAME,
                          'myAVSet'
                      )
-                     vm_parameters = {
+                        vm_parameters = {
                          'location': LOCATION,
                          'os_profile': {
                              'computer_name': VM_NAME,
@@ -148,41 +145,33 @@ class MyEchoAction(Action):
                              'id': avset.id
                          }
                      }
-                     creation_result = compute_client.virtual_machines.create_or_update(
+                        creation_result = compute_client.virtual_machines.create_or_update(
                          GROUP_NAME,
                          VM_NAME,
                          vm_parameters
                      )
+                        return creation_result.result()
 
-                     return creation_result.result()
 
+            credentials = get_credentials()
+            resource_group_client = ResourceManagementClient(
+            credentials,
+            SUBSCRIPTION_ID
+            )
+            network_client = NetworkManagementClient(
+            credentials,
+            SUBSCRIPTION_ID
+            )
+            compute_client = ComputeManagementClient(
+            credentials,
+            SUBSCRIPTION_ID
+            )
 
-                   credentials = get_credentials()
-                   resource_group_client = ResourceManagementClient(
-                   credentials,
-                   SUBSCRIPTION_ID
-                   )
-                   network_client = NetworkManagementClient(
-                   credentials,
-                   SUBSCRIPTION_ID
-                   )
-                   compute_client = ComputeManagementClient(
-                   credentials,
-                   SUBSCRIPTION_ID
-                   )
-
-                   create_resource_group(resource_group_client)      
-
-                   create_availability_set(compute_client)
-
-                   creation_result = create_public_ip_address(network_client)
-
-                   creation_result = create_vnet(network_client)         
-
-                   creation_result = create_subnet(network_client)
-
-                   creation_result = create_nic(network_client)        
-
-                   creation_result = create_vm(network_client, compute_client)         
-
-                   print("VM created Successfully")
+            create_resource_group(resource_group_client)      
+            create_availability_set(compute_client)
+            creation_result = create_public_ip_address(network_client)
+            creation_result = create_vnet(network_client)         
+            creation_result = create_subnet(network_client)
+            creation_result = create_nic(network_client)        
+            creation_result = create_vm(network_client, compute_client)         
+            print("VM created Successfully")
