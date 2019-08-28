@@ -7,8 +7,8 @@ from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute.models import DiskCreateOption
 from st2common.runners.base_action import Action
 
-class MyEchoAction(Action):
-   
-         def run(self, Subscription_Id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
-
-                print("success")
+class MyEchoAction(Action):              
+        
+        def run(self, Subcription_id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
+            
+            print("success")
