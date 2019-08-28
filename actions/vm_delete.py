@@ -1,11 +1,12 @@
 import sys
+sys.path.append('/usr/local/lib/python2.7/dist-packages')
 from azure.common.credentials import ServicePrincipalCredentials
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.compute import ComputeManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute.models import DiskCreateOption
 from st2common.runners.base_action import Action
-sys.path.append('/usr/local/lib/python2.7/dist-packages')
+
 class MyEchoAction(Action):
   
         SUBSCRIPTION_ID = Subcription_id
