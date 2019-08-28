@@ -7,12 +7,7 @@ from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute.models import DiskCreateOption
 from st2common.runners.base_action import Action
 
-class MyEchoAction(Action):
-  
-        SUBSCRIPTION_ID = Subcription_id
-        GROUP_NAME = Group_Name
-        LOCATION = Location
-        VM_NAME = VM_Name
+class MyEchoAction(Action): 
         
         def get_credentials():
             credentials = ServicePrincipalCredentials(
@@ -26,6 +21,11 @@ class MyEchoAction(Action):
         def delete_resources(resource_group_client):
             resource_group_client.resource_groups.delete(GROUP_NAME)
         def run(self, Subcription_id, Group_Name, Location, VM_Name, Client_Id, Secret, Tenant_Id):
+            
+            SUBSCRIPTION_ID = Subcription_id
+            GROUP_NAME = Group_Name
+            LOCATION = Location
+            VM_NAME = VM_Name
             credentials = get_credentials()
             resource_group_client = ResourceManagementClient(
                 credentials,
