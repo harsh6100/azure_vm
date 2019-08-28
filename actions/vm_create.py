@@ -83,7 +83,7 @@ class MyEchoAction(Action):
             )
             return creation_result.result()
 
-        def create_nic(network_client)
+        def create_nic(network_client):
             subnet_info = network_client.subnets.get(
                 GROUP_NAME,
                 'myVNet',
