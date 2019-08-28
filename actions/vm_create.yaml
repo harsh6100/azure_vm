@@ -5,8 +5,8 @@ runner_type: "python-script"
 description: To create a VM instance 
 enabled: true
 entry_point: VM_create.py
-parameters:
-    	Subscription_Id:
+parameters:	
+	Subscription_Id:
 		type: string
 		description: Enter subscription id of the user
 		required: true
