@@ -1,6 +1,6 @@
 ---
 name: "vm_restart"
-pack: angela_pack
+pack: azure_vm
 runner_type: "python-script"
 description: "Restart VM"
 enabled: true
