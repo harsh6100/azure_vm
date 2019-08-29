@@ -1,0 +1,43 @@
+---
+name: "vm_stop"
+pack: angela_pack
+runner_type: "python-script"
+description: "stop VM"
+enabled: true
+entry_point: "vm_stop.py"
+parameters:
+    sub_id:
+        type: "string"
+        description: "Post the SUBSCRIPTION_ID of book data"
+        required: true
+        position: 0
+    group_name:
+        type: "string"
+        description: "Post the GROUP_NAME of book data"
+        required: true
+        position: 1
+    location:
+        type: "string"
+        description: "Post the LOCATION of book data"
+        required: true
+        position: 2
+    vm_name:
+        type: "string"
+        description: "Post the VM_NAME of book data"
+        required: true
+        position: 3
+    client_id1:
+        type: "string"
+        description: "Get the client_id of book data"
+        required: true
+        position: 4
+    secret1:
+        type: "string"
+        description: "Post the secret of book data"
+        required: true
+        position: 5
+    tenant1:
+        type: "string"
+        description: "Post the tenant of book data"
+        required: true
+        position: 6
