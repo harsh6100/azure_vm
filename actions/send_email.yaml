@@ -1,5 +1,6 @@
 ---
   name: "send_email"
+  ref: azure_vm
   runner_type: "python-script"
   description: "Send an email."
   enabled: true
