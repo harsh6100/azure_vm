@@ -9,5 +9,3 @@ smtp_accounts:
     username: "stackstorm.alert@gmail.com"
 max_attachment_size: 1024
 attachment_datastore_ttl: 1800
-sensor_smtp_listen_ip: '127.0.0.1'
-sensor_smtp_listen_port: 25
