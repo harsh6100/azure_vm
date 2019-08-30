@@ -1,0 +1,16 @@
+---
+name: Sample
+description: "Rule which sends an email when an email from johndoe@gmail.com is received"
+pack: azure_vm
+enabled: true
+trigger:
+  type: email.imap.message
+  parameters: {}
+criteria:
+  trigger.subject:
+    pattern: VM Create
+    type: contains
+action:
+  ref: core.local
+  parameters:
+    cmd: "echo {{trigger.subject}}"
