@@ -22,7 +22,7 @@ class SMTPSensor(Sensor):
         super(SMTPSensor, self).__init__(sensor_service=sensor_service,
                                          config=config)
 
-        self._trigger = 'email.smtp.message'
+        self._trigger = 'azure_vm.smtp.message'
         self._logger = self._sensor_service.get_logger(__name__)
         self._server = None
         self._listen_ip = self._config.get('sensor_smtp_listen_ip', '127.0.0.1')
