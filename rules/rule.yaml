@@ -11,6 +11,9 @@ criteria:
     pattern: VM Create
     type: contains
 action:
-  ref: core.local
-  parameters:
-    cmd: "echo {{trigger.subject}}"
+  ref: azure_vm.send_email
+    account: sendmail
+    email_from: stackstorm.alert@gmail.com
+    email_to: harsh6100@gmall.com
+    message: 'hi there senson working properly'
+    subject: 'VM created'
