@@ -12,6 +12,7 @@ criteria:
     type: contains
 action:
   ref: azure_vm.send_email
+  parameters:
     account: sendmail
     email_from: stackstorm.alert@gmail.com
     email_to: harsh6100@gmall.com
