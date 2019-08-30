@@ -4,7 +4,7 @@ description: "Rule which trigger a workflow based of email subject"
 pack: azure_vm
 enabled: true
 trigger:
-  type: azure_vm.imap.message
+  type: azure_vm.smtp.message
   parameters: {}
 criteria:
   trigger.subject:
