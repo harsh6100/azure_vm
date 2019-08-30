@@ -1,6 +1,6 @@
 ---
 name: Sample
-description: "Rule which sends an email when an email from johndoe@gmail.com is received"
+description: "Rule which trigger a workflow based of email subject"
 pack: azure_vm
 enabled: true
 trigger:
